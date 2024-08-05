@@ -19,7 +19,7 @@ public class EquipementServiceImpl implements EquipementService {
 
     @Override
     public List<Equipement> getAllEquipements() {
-        return List.of();
+        return equipementRepository.findAll();
     }
 
     @Override
