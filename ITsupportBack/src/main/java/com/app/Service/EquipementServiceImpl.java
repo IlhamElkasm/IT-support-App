@@ -23,8 +23,8 @@ public class EquipementServiceImpl implements EquipementService {
     }
 
     @Override
-    public void deleteEquipements(Long id) {
-
+    public void deleteEquipements(Long idEquipement) {
+        equipementRepository.deleteById(idEquipement);
     }
 
     @Override
