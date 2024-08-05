@@ -1,0 +1,26 @@
+package com.app.Model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Equipement {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idEquipement;
+    private String nome;
+    private String  description;
+    private EtatEquipement etat;
+
+    @OneToMany(mappedBy = "equipement")
+    private List<Panne> pannes;
+
+}
