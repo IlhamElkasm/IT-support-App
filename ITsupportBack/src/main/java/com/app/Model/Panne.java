@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -15,10 +16,9 @@ public class Panne {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long idPanne;
+    private Long idPanne;
     private String description;
-    private Date dateSignalement;
-    private Date dateResolution;
+    private LocalDate dateSignalement;
     private EtatPanne etatPanne;
 
     @ManyToOne
