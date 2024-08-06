@@ -13,12 +13,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/auth/Admin")
 public class PanneController {
+
     @Autowired
     private PanneService panneService;
 
-    @PostMapping("/createPanne")
-    public Panne createPanne(@RequestBody Panne panne) {
-        return panneService.addPanne(panne);
+    @PostMapping("/equipement/{equipementId}")
+    public Panne createPanne(@RequestBody Panne panne, @PathVariable Long equipementId) {
+        return panneService.addPanne(panne, equipementId);
     }
 
     @PutMapping("/{id}")
@@ -26,7 +27,7 @@ public class PanneController {
         return panneService.updatePanne(id, panneDetails);
     }
 
-    @DeleteMapping("/detele/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePanne(@PathVariable Long id) {
         panneService.deletePanne(id);
         return ResponseEntity.noContent().build();
