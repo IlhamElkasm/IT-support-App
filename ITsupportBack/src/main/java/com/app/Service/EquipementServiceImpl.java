@@ -37,7 +37,7 @@ public class EquipementServiceImpl implements EquipementService {
             equipToUpdate.setNome(equipement.getNome());
             equipToUpdate.setDescription(equipement.getDescription());
             equipToUpdate.setEtat(equipement.getEtat());
-            equipToUpdate.setPannes(equipement.getPannes());
+//            equipToUpdate.setPannes(equipement.getPannes());
             return equipementRepository.save(equipToUpdate);
         } else {
             throw new RuntimeException("Equipement not found with id " + idEquipement);

@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,10 +17,8 @@ public class Panne {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPanne;
     private String description;
-    private LocalDate dateSignalement;
     private EtatPanne etatPanne;
 
-    @ManyToOne
-    @JoinColumn(name = "idEquipement", nullable = false)
-    private Equipement equipement;
+    @OneToMany(mappedBy = "panne")
+    private List<Historique> historiques;
 }
