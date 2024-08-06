@@ -8,5 +8,5 @@ public interface EquipementService {
     Equipement CreateEquipement(Equipement equipement);
     List<Equipement> getAllEquipements();
     void deleteEquipements(Long idEquipement) ;
-    public Equipement updateEquipements(Equipement equipement);
+    public Equipement updateEquipements(Equipement equipement, Long idEquipement);
 }

@@ -29,4 +29,9 @@ public class EquipementController {
     public void deleteCompte(@PathVariable Long idEquipement) {
         equipementService.deleteEquipements(idEquipement);
     }
+
+    @PutMapping("/eventsPut/{idEquipement}")
+    public Equipement updateEquipement(@PathVariable Long idEquipement, @RequestBody Equipement equipement) {
+        return equipementService.updateEquipements(equipement, idEquipement);
+    }
 }
