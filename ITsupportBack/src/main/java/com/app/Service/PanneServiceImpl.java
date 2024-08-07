@@ -16,16 +16,9 @@ public class PanneServiceImpl implements PanneService {
     @Autowired
     private EquipementRepository equipementRepository;
 
-//    @Autowired
-//    private HistoriqueRepository historiqueRepository;
-
     public Panne addPanne(Panne panne) {
         Panne savedPanne = panneRepository.save(panne);
 
-//        Historique historique = new Historique();
-//        historique.setDateHistorique(LocalDate.now());
-//        historique.setPanne(savedPanne);
-//        historiqueRepository.save(historique);
 
         return savedPanne;
     }
@@ -36,10 +29,6 @@ public class PanneServiceImpl implements PanneService {
         panne.setEtatPanne(panneDetails.getEtatPanne());
         Panne updatedPanne = panneRepository.save(panne);
 
-//        Historique historique = new Historique();
-//        historique.setDateHistorique(LocalDate.now());
-//        historique.setPanne(updatedPanne);
-//        historiqueRepository.save(historique);
 
         return updatedPanne;
     }
