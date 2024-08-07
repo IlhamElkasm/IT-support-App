@@ -31,12 +31,6 @@ public class Personne implements UserDetails {
     private Role role;
 
 
-    public Personne(String nom, String email, String password, Role role) {
-        this.nom = nom;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

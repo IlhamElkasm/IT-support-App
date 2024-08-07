@@ -4,8 +4,7 @@ package com.app.Service;
 import com.app.DTO.AuthenticationRequest;
 import com.app.DTO.AuthenticationResponse;
 import com.app.DTO.RegisterRequest;
-import com.app.Model.Personne;
-import com.app.Model.Role;
+import com.app.Model.*;
 import com.app.Repository.PersonneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,12 +25,11 @@ public class AuthenticationService {
 
     public AuthenticationResponse register(RegisterRequest request) {
 
-        var user = Personne.builder()
-                .nom(request.getNom())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
-                .build();
+        var user = new Utilisateur();
+        user.setNom(request.getNom());
+        user.setEmail(request.getEmail());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole(Role.USER);
         userdao.save(user);
 
         var jwtToken = jwtService.generateToken(user);
@@ -39,36 +37,38 @@ public class AuthenticationService {
                 .token(jwtToken)
                 .build();
     }
+
     public AuthenticationResponse registerAdmin(RegisterRequest request) {
 
-        var user = Personne.builder()
-                .nom(request.getNom())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.ADMIN)
-                .build();
-        userdao.save(user);
+        var admin = new AdministrateurIT();
+        admin.setNom(request.getNom());
+        admin.setEmail(request.getEmail());
+        admin.setPassword(passwordEncoder.encode(request.getPassword()));
+        admin.setRole(Role.ADMIN);
+        userdao.save(admin);
 
-        var jwtToken = jwtService.generateToken(user);
+        var jwtToken = jwtService.generateToken(admin);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
     }
+
+
     public AuthenticationResponse registerTechnicien(RegisterRequest request) {
 
-        var user = Personne.builder()
-                .nom(request.getNom())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.TECHNICIEN)
-                .build();
-        userdao.save(user);
+        var admin = new TechnicienIT();
+        admin.setNom(request.getNom());
+        admin.setEmail(request.getEmail());
+        admin.setPassword(passwordEncoder.encode(request.getPassword()));
+        admin.setRole(Role.TECHNICIEN);
+        userdao.save(admin);
 
-        var jwtToken = jwtService.generateToken(user);
+        var jwtToken = jwtService.generateToken(admin);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
     }
+
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 

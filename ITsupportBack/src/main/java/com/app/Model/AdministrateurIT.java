@@ -11,7 +11,4 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AdministrateurIT extends Personne {
 
-    public AdministrateurIT(String nom, String email, String password) {
-        super(nom, email, password, Role.ADMIN);
-    }
 }

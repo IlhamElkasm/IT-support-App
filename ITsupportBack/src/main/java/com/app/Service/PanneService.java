@@ -9,9 +9,11 @@ import java.util.List;
 
 public interface PanneService {
 
-    Panne addPanne(Panne panne, Long equipementId);
+    Panne addPanne(Panne panne);
     Panne updatePanne(Long idPann, Panne panneDetails);
     void deletePanne(Long idPann);
-    List<Historique> getHistoriqueByEquipement(Long idEquipement);
+    List<Panne> getAllPanne();
+
+//    List<Historique> getHistoriqueByEquipement(Long idEquipement);
 
 }

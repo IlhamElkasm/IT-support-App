@@ -24,7 +24,4 @@ public class Panne {
     @OneToMany(mappedBy = "panne")
     private List<Historique> historiques;
 
-    @ManyToOne
-    @JoinColumn(name = "idEquipement", nullable = false)
-    private Equipement equipement;
 }

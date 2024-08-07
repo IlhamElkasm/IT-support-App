@@ -1,5 +1,6 @@
 package com.app.Controller;
 
+import com.app.Model.Equipement;
 import com.app.Model.EtatPanne;
 import com.app.Model.Historique;
 import com.app.Model.Panne;
@@ -17,9 +18,9 @@ public class PanneController {
     @Autowired
     private PanneService panneService;
 
-    @PostMapping("/equipement/{equipementId}")
-    public Panne createPanne(@RequestBody Panne panne, @PathVariable Long equipementId) {
-        return panneService.addPanne(panne, equipementId);
+    @PostMapping("/panne")
+    public Panne createPanne(@RequestBody Panne panne) {
+        return panneService.addPanne(panne);
     }
 
     @PutMapping("/{id}")
@@ -27,15 +28,13 @@ public class PanneController {
         return panneService.updatePanne(id, panneDetails);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePanne(@PathVariable Long id) {
-        panneService.deletePanne(id);
-        return ResponseEntity.noContent().build();
+    @GetMapping("/ShowAllPanne")
+    public List<Panne> getAllPanne() {
+        return panneService.getAllPanne();
     }
 
-    @GetMapping("/equipement/{idEquipement}/historique")
-    public List<Historique> getHistoriqueByEquipement(@PathVariable Long idEquipement) {
-        return panneService.getHistoriqueByEquipement(idEquipement);
+    @DeleteMapping("/{idPann}")
+    public void deletePanne(@PathVariable Long idPann) {
+        panneService.deletePanne(idPann);
     }
-
 }
