@@ -21,8 +21,10 @@ public class Equipement {
     private String  description;
     private EtatEquipement etat;
 
+
+
     @JsonIgnore
     @OneToMany(mappedBy = "equipement")
-    private List<Historique> historiques;
+    private List<Ticket> tickets;
 
 }

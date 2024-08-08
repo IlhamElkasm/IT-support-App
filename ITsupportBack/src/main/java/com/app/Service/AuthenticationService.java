@@ -6,6 +6,7 @@ import com.app.DTO.AuthenticationResponse;
 import com.app.DTO.RegisterRequest;
 import com.app.Model.*;
 import com.app.Repository.PersonneRepository;
+import com.app.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,6 +20,7 @@ import java.util.List;
 public class AuthenticationService {
 
     private final PersonneRepository userdao;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -87,4 +89,10 @@ public class AuthenticationService {
                 .build();
     }
 
+    public List<Utilisateur> getAllUser() {
+        return  userRepository.findAll();
+    }
+    public Long count(){
+        return userdao.count();
+    }
 }

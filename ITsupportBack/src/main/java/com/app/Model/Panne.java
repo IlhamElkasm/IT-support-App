@@ -22,6 +22,5 @@ public class Panne {
 
     @JsonIgnore
     @OneToMany(mappedBy = "panne")
-    private List<Historique> historiques;
-
+    private List<Ticket> tickets;
 }

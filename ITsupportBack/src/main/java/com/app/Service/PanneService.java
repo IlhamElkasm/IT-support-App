@@ -1,8 +1,5 @@
 package com.app.Service;
 
-import com.app.Model.Equipement;
-import com.app.Model.EtatPanne;
-import com.app.Model.Historique;
 import com.app.Model.Panne;
 
 import java.util.List;

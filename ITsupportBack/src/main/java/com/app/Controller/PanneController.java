@@ -1,12 +1,8 @@
 package com.app.Controller;
 
-import com.app.Model.Equipement;
-import com.app.Model.EtatPanne;
-import com.app.Model.Historique;
 import com.app.Model.Panne;
 import com.app.Service.PanneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,8 +29,8 @@ public class PanneController {
         return panneService.getAllPanne();
     }
 
-    @DeleteMapping("/{idPann}")
-    public void deletePanne(@PathVariable Long idPann) {
-        panneService.deletePanne(idPann);
+    @DeleteMapping("/delete/{idpann}")
+    public void deletePanne(@PathVariable Long idpann) {
+        panneService.deletePanne(idpann);
     }
 }

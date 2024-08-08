@@ -4,7 +4,9 @@ package com.app.Controller;
 import com.app.DTO.AuthenticationRequest;
 import com.app.DTO.AuthenticationResponse;
 import com.app.DTO.RegisterRequest;
+import com.app.Model.Panne;
 import com.app.Model.Personne;
+import com.app.Model.Utilisateur;
 import com.app.Service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,10 @@ public class AuthenticationController {
 
     private final AuthenticationService authService;
 
+    @GetMapping("/Admin/AllUser")
+    public List<Utilisateur> getAllPanne() {
+        return authService.getAllUser();
+    }
     @PostMapping("/Admin/register")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request

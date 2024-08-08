@@ -1,0 +1,94 @@
+<div class="dashboard-container">
+    <div class="dashboard-content">
+      <div class="dashboard-header">
+        <div class="search-bar">
+          <input type="text" placeholder="Search...">
+        </div>
+        <div class="user-info">
+          <img src="path/to/user-avatar.png" alt="User Avatar">
+          <span>Aiden Max</span>
+        </div>
+      </div>
+      <div class="stats-cards">
+        <div class="card">
+          <h3>User</h3>
+          <div *ngIf="serCount !== undefined">
+            <p>{{ serCount }}</p>
+          </div>
+          <div *ngIf="serCount === undefined">
+            <p>Loading...</p>
+        </div>
+        <p class="card-footer">+12% last month</p>
+        </div>
+        <div class="card">
+          <h3>Customers</h3>
+          <p>3,200</p>
+          <p class="card-footer">+12% last month</p>
+        </div>
+        <div class="card">
+          <h3>Avg Revenue</h3>
+          <p>$2,300</p>
+          <p class="card-footer">+210% last month</p>
+        </div>
+      </div>
+      <div class="charts">
+        <div class="revenue-chart">
+          <!-- Ajoutez ici votre composant de graphique (par exemple avec Chart.js) -->
+          <h4>Revenue</h4>
+          <canvas id="revenueChart"></canvas>
+        </div>
+        <div class="visitors-chart">
+          <h4>Website Visitors</h4>
+          <!-- Ajoutez ici votre composant de graphique circulaire -->
+          <canvas id="visitorsChart"></canvas>
+        </div>
+      </div>
+      <div class="top-selling">
+        <h4>Top Selling Product</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Orders</th>
+              <th>Price</th>
+              <th>Ads Spent</th>
+              <th>Refunds</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nike v22 Running Shoes</td>
+              <td>8000</td>
+              <td>$130</td>
+              <td>$9,500</td>
+              <td>> 13</td>
+            </tr>
+            <tr>
+              <td>Instax Camera</td>
+              <td>3000</td>
+              <td>$45</td>
+              <td>$4,500</td>
+              <td>> 18</td>
+            </tr>
+            <!-- Ajoutez plus de lignes ici -->
+          </tbody>
+        </table>
+      </div>
+      <div class="new-customers">
+        <h4>New Customers</h4>
+        <ul>
+          <li>
+            <img src="path/to/avatar1.png" alt="Customer 1">
+            <span>Roselle Ehrman</span>
+            <span>Brazil</span>
+          </li>
+          <li>
+            <img src="path/to/avatar2.png" alt="Customer 2">
+            <span>Jane Smith</span>
+            <span>Australia</span>
+          </li>
+          <!-- Ajoutez plus de clients ici -->
+        </ul>
+      </div>
+    </div>
+  </div>

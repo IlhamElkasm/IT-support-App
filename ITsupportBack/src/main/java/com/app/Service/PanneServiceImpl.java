@@ -18,8 +18,6 @@ public class PanneServiceImpl implements PanneService {
 
     public Panne addPanne(Panne panne) {
         Panne savedPanne = panneRepository.save(panne);
-
-
         return savedPanne;
     }
 
@@ -28,8 +26,6 @@ public class PanneServiceImpl implements PanneService {
         panne.setDescription(panneDetails.getDescription());
         panne.setEtatPanne(panneDetails.getEtatPanne());
         Panne updatedPanne = panneRepository.save(panne);
-
-
         return updatedPanne;
     }
 
