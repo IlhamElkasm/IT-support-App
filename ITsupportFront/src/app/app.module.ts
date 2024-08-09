@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashbordComponent } from './Components/dashbord/dashbord.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { UserComponent } from './Components/user/user.component';
-import { MainComponent } from './Components/main/main.component'; 
+import { MainComponent } from './Components/main/main.component';
+import { EquipementComponent } from './Components/equipement/equipement.component'; 
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MainComponent } from './Components/main/main.component';
     DashbordComponent,
     SidebarComponent,
     UserComponent,
-    MainComponent
+    MainComponent,
+    EquipementComponent
   ],
   imports: [
     BrowserModule,

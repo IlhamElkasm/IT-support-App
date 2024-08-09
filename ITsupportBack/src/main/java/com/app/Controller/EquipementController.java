@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/auth/Admin")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class EquipementController {
 
     @Autowired

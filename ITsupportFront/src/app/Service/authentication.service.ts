@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Jwt } from '../Module/Jwt';
 import { Utilisateur } from '../Module/Utilisateur';
+import { Router } from '@angular/router';
 
 const url = ["http://localhost:8089/api/v1/auth/"]
 
@@ -11,7 +12,7 @@ const url = ["http://localhost:8089/api/v1/auth/"]
 })
 export class AuthenticationService {
   url: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router: Router) { }
 
   register(singRequest:any): Observable<Jwt>{
     return this.http.post<Jwt>(url+'Admin/register', singRequest)
@@ -35,9 +36,18 @@ export class AuthenticationService {
     }
   }
 
-  
+
   getAllUser(): Observable<Utilisateur[]> {
     const headers = this.createAuthorizationHeader();
     return this.http.get<Utilisateur[]>(url+ `Admin/AllUser`, { headers });
+  }
+
+  logout() {
+    localStorage.removeItem('jwt');
+    this.router.navigate(['/login']);
+  }
+
+  isLoggedIn() {
+    return !!localStorage.getItem('token');
   }
 }

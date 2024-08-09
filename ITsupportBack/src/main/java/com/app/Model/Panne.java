@@ -18,7 +18,6 @@ public class Panne {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPanne;
     private String description;
-    private EtatPanne etatPanne;
 
     @JsonIgnore
     @OneToMany(mappedBy = "panne")

@@ -18,6 +18,8 @@ public class Ticket {
     private String description;
     private LocalDate dateCréation;
 
+    @Enumerated(EnumType.STRING)
+    private EtatTicket etatTicket;
     @ManyToOne
     @JoinColumn(name = "idPanne", nullable = false)
     private Panne panne;

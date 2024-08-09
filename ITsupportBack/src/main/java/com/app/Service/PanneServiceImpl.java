@@ -13,9 +13,6 @@ public class PanneServiceImpl implements PanneService {
     @Autowired
     private PanneRepository panneRepository;
 
-    @Autowired
-    private EquipementRepository equipementRepository;
-
     public Panne addPanne(Panne panne) {
         Panne savedPanne = panneRepository.save(panne);
         return savedPanne;
@@ -24,7 +21,6 @@ public class PanneServiceImpl implements PanneService {
     public Panne updatePanne(Long id, Panne panneDetails) {
         Panne panne = panneRepository.findById(id).orElseThrow(() -> new RuntimeException("Panne not found"));
         panne.setDescription(panneDetails.getDescription());
-        panne.setEtatPanne(panneDetails.getEtatPanne());
         Panne updatedPanne = panneRepository.save(panne);
         return updatedPanne;
     }
@@ -36,7 +32,7 @@ public class PanneServiceImpl implements PanneService {
 
     @Override
     public void deletePanne(Long idPann) {
-        equipementRepository.deleteById(idPann);
+        panneRepository.deleteById(idPann);
     }
 
 }
