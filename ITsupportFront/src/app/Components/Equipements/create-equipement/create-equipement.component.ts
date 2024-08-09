@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Equipement } from 'src/app/Module/equipement';
+import { Router } from '@angular/router';
+import { Equipement, EtatEquipement } from 'src/app/Module/equipement';
 import { EquipementsService } from 'src/app/Service/equipements.service';
 
 @Component({
@@ -9,22 +10,29 @@ import { EquipementsService } from 'src/app/Service/equipements.service';
   styleUrls: ['./create-equipement.component.css']
 })
 export class CreateEquipementComponent {
+  equipement: Equipement = {
+    nom: '',
+    description: '',
+    etat: EtatEquipement.EN_SERVICE
+  };
 
-  equipement: Equipement = new Equipement();
+  etats = Object.values(EtatEquipement);
 
-  constructor(private equipementservice: EquipementsService) { }
+  constructor(private equipementService: EquipementsService,private router: Router) { }
 
-  ngOnInit(): void {}
-
-  creerCompte(): void {
-    console.log('Valeurs avant création:', this.equipement); // Pour déboguer
-    this.equipementservice.createEquipement(this.equipement).subscribe(
-      (response: Equipement) => {
-        console.log('Compte créé avec succès:', response);
+  onSubmit() {
+    this.equipementService.createEquipement(this.equipement).subscribe({
+      next: (response) => {
+        console.log('Équipement créé avec succès', response);
+        this.router.navigate(['/dashboard/equipements']);
+        // Réinitialiser le formulaire après la soumission ou naviguer vers une autre page
       },
-      (error: HttpErrorResponse) => {
-        console.error('Erreur lors de la création du compte:', error);
+      error: (error) => {
+        console.error('Erreur lors de la création de l\'équipement', error);
+      
       }
-    );
+    });
   }
+
+ 
 }

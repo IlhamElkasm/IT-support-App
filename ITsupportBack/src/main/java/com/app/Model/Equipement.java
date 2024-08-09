@@ -17,7 +17,7 @@ public class Equipement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipement;
-    private String nome;
+    private String nom;
     private String  description;
     private EtatEquipement etat;
 

@@ -1,4 +1,5 @@
 <div class="container">
+  <button class="add-account-btn"><a routerLink="/dashboard/createEquipments">Equipement</a></button>
   <h2>Liste des Équipements</h2>
 
   <div *ngIf="errorMessage" class="error">
@@ -16,12 +17,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let equipement of equipements">
-        <td>{{ equipement.nome }}</td>
+        <td>{{ equipement.nom}}</td>
         <td>{{ equipement.description }}</td>
         <td>{{ equipement.etat }}</td>
         <td class="actions">
           <button class="edit-btn">Modifier</button>
-          <button class="delete-btn" (click)="deleteEquipement(equipement.idEquipement)">Supprimer</button>
+          <button class="delete-btn" *ngIf="equipement.idEquipement" (click)="deleteEquipement(equipement.idEquipement!)">Supprimer</button>
         </td>
       </tr>
     </tbody>

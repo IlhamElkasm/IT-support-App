@@ -1,22 +1,20 @@
-<form (ngSubmit)="creerCompte()">
-    <div>
-      <label for="nom">Nom:</label>
-      <input id="nom" [(ngModel)]="equipement.nome" name="nome" required />
+<div class="container">
+  <h2>Créer un nouvel équipement</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nom">Nom de l'équipement</label>
+      <input type="text" id="nom" class="form-control" [(ngModel)]="equipement.nom" name="nom" required>
     </div>
-  
-    <div>
-      <label for="description">Description:</label>
-      <textarea id="description" [(ngModel)]="equipement.description" name="description"></textarea>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" id="description" class="form-control" [(ngModel)]="equipement.description" name="description" required>
     </div>
-  
-    <div>
-      <label>État:</label>
-      <select id="etat" [(ngModel)]="equipement.etat" name="etat" required>
-        <option>EN_SERVICE</option>
-        <option>HORS_SERVICE</option>
+    <div class="form-group">
+      <label for="etat">État de l'équipement</label>
+      <select id="etat" class="form-control" [(ngModel)]="equipement.etat" name="etat" required>
+        <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
       </select>
     </div>
-  
-    <button type="submit">Créer Équipement</button>
+    <button type="submit" class="btn btn-primary">Créer</button>
   </form>
-  
+</div>

@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Equipement } from '../Module/equipement';
 
-const Url = ["http://localhost:8089/api/v1/auth/Admin"]
+
 @Injectable({
   providedIn: 'root'
 })
 export class EquipementsService {
   
   constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:8089/api/v1/auth/Admin';
 
   private createAuthorizationHeader(): HttpHeaders | undefined {
     const jwtToken = localStorage.getItem('jwt');
@@ -24,21 +25,20 @@ export class EquipementsService {
 
   getAllEquipements(): Observable<Equipement[]> {
     const headers = this.createAuthorizationHeader();
-    return this.http.get<Equipement[]>(Url[0]+ '/ShowAll', { headers });
+    return this.http.get<Equipement[]>(`${this.apiUrl}/ShowAll`, { headers });
   }
 
   createEquipement(equipement: Equipement): Observable<Equipement> {
-    const headers = this.createAuthorizationHeader();
-    return this.http.post<Equipement>(Url+ '/CreateEquipement', { headers});
+    return this.http.post<Equipement>(`${this.apiUrl}/CreateEquipement`, equipement);
   }
 
   updateEquipement(equipement: Equipement, id: number): Observable<Equipement> {
     const headers = this.createAuthorizationHeader();
-    return this.http.put<Equipement>(Url+ '/eventsPut/{idEquipement}', { headers});
+    return this.http.put<Equipement>(`${this.apiUrl}/eventsPut/{idEquipement}`, { headers});
   }
 
   deleteEquipement(idEquipement: number): Observable<void> {
     const headers = this.createAuthorizationHeader();
-    return this.http.delete<void>(Url + `/${idEquipement}`, { headers});
+    return this.http.delete<void>(`${this.apiUrl}/${idEquipement}`, { headers});
   }
 }

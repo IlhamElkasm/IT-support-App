@@ -34,7 +34,7 @@ public class EquipementServiceImpl implements EquipementService {
         Optional<Equipement> existingEquipement = equipementRepository.findById(idEquipement);
         if (existingEquipement.isPresent()) {
             Equipement equipToUpdate = existingEquipement.get();
-            equipToUpdate.setNome(equipement.getNome());
+            equipToUpdate.setNom(equipement.getNom());
             equipToUpdate.setDescription(equipement.getDescription());
             equipToUpdate.setEtat(equipement.getEtat());
 //            equipToUpdate.setPannes(equipement.getPannes());
