@@ -13,7 +13,8 @@ import { DashbordComponent } from './Components/dashbord/dashbord.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { UserComponent } from './Components/user/user.component';
 import { MainComponent } from './Components/main/main.component';
-import { EquipementComponent } from './Components/equipement/equipement.component'; 
+import { EquipementComponent } from './Components/Equipements/equipement/equipement.component';
+import { CreateEquipementComponent } from './Components/Equipements/create-equipement/create-equipement.component'; 
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { EquipementComponent } from './Components/equipement/equipement.componen
     SidebarComponent,
     UserComponent,
     MainComponent,
-    EquipementComponent
+    EquipementComponent,
+    CreateEquipementComponent
   ],
   imports: [
     BrowserModule,

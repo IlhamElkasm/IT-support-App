@@ -29,4 +29,16 @@ export class EquipementComponent implements OnInit {
       }
     );
   }
+  
+  deleteEquipement(idEquipement: number): void {
+    this.equipementService.deleteEquipement(idEquipement).subscribe(
+      () => {
+        this.equipements = this.equipements.filter(equipements => equipements.idEquipement !== idEquipement);
+        console.log('User deleted successfully');
+      },
+      (error) => {
+        console.error('Error deleting user', error);
+      }
+    );
+  }
 }

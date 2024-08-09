@@ -1,0 +1,22 @@
+<form (ngSubmit)="creerCompte()">
+    <div>
+      <label for="nom">Nom:</label>
+      <input id="nom" [(ngModel)]="equipement.nome" name="nome" required />
+    </div>
+  
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="equipement.description" name="description"></textarea>
+    </div>
+  
+    <div>
+      <label>État:</label>
+      <select id="etat" [(ngModel)]="equipement.etat" name="etat" required>
+        <option>EN_SERVICE</option>
+        <option>HORS_SERVICE</option>
+      </select>
+    </div>
+  
+    <button type="submit">Créer Équipement</button>
+  </form>
+  

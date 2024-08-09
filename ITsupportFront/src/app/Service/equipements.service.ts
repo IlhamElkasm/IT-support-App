@@ -24,12 +24,12 @@ export class EquipementsService {
 
   getAllEquipements(): Observable<Equipement[]> {
     const headers = this.createAuthorizationHeader();
-    return this.http.get<Equipement[]>(Url+ '/ShowAll', { headers });
+    return this.http.get<Equipement[]>(Url[0]+ '/ShowAll', { headers });
   }
 
   createEquipement(equipement: Equipement): Observable<Equipement> {
     const headers = this.createAuthorizationHeader();
-    return this.http.post<Equipement>(Url+ '/{idEquipement}', { headers});
+    return this.http.post<Equipement>(Url+ '/CreateEquipement', { headers});
   }
 
   updateEquipement(equipement: Equipement, id: number): Observable<Equipement> {
@@ -37,8 +37,8 @@ export class EquipementsService {
     return this.http.put<Equipement>(Url+ '/eventsPut/{idEquipement}', { headers});
   }
 
-  deleteEquipement(id: number): Observable<void> {
+  deleteEquipement(idEquipement: number): Observable<void> {
     const headers = this.createAuthorizationHeader();
-    return this.http.delete<void>(Url + '/{idEquipement}', { headers});
+    return this.http.delete<void>(Url + `/${idEquipement}`, { headers});
   }
 }

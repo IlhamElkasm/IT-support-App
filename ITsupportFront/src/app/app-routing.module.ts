@@ -5,18 +5,20 @@ import { DashbordComponent } from './Components/dashbord/dashbord.component';
 import { UserComponent } from './Components/user/user.component';
 import { MainComponent } from './Components/main/main.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { EquipementComponent } from './Components/equipement/equipement.component';
+import { EquipementComponent } from './Components/Equipements/equipement/equipement.component';
 import { AuthGuard } from './Service/auth.guard';
+import { CreateEquipementComponent } from './Components/Equipements/create-equipement/create-equipement.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashbordComponent , children:[
     { path: '', component: MainComponent }, 
     {path: 'user', component: UserComponent},
+    {path: 'register', component: RegisterComponent},
     { path: 'equipements', component: EquipementComponent},
+    {path: 'createEquipments', component: CreateEquipementComponent}
   ]},
   { path: '**', redirectTo: '/login' },
   {path: "login", component: LoginComponent},
-  {path: "register", component: RegisterComponent},
 ];
 
 @NgModule({
