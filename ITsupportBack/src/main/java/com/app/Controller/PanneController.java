@@ -30,8 +30,8 @@ public class PanneController {
         return panneService.getAllPanne();
     }
 
-    @DeleteMapping("/delete/{idpann}")
-    public void deletePanne(@PathVariable Long idpann) {
-        panneService.deletePanne(idpann);
+    @DeleteMapping("/delete/{idpanne}")
+    public void deletePanne(@PathVariable Long idpanne) {
+        panneService.deletePanne(idpanne);
     }
 }

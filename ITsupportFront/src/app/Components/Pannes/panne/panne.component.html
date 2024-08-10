@@ -18,7 +18,7 @@
           <td>{{ panne.description }}</td>
           <td class="actions">
             <button class="edit-btn">Modifier</button>         
-            <button class="delete-btn">Supprimer</button>
+            <button class="delete-btn" *ngIf="panne.idPanne" (click)="deletePanne(panne.idPanne!)">Supprimer</button>
           </td>
         </tr>
       </tbody>

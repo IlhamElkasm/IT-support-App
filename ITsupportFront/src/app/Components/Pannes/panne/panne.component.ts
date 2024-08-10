@@ -25,8 +25,20 @@ export class PanneComponent implements OnInit {
         this.pannes = data;
       },
       (error) => {
-        console.error('Failed to load equipements', error);
+        console.error('Failed to load  panne', error);
         this.errorMessage = 'Une erreur est survenue lors du chargement des équipements.';
+      }
+    );
+  }
+
+  deletePanne(idPanne: number): void {
+    this.pannesService.deletePanne(idPanne).subscribe(
+      () => {
+        this.pannes = this.pannes.filter(pannes => pannes.idPanne !== idPanne);
+        console.log('User deleted successfully');
+      },
+      (error) => {
+        console.error('Error deleting user', error);
       }
     );
   }

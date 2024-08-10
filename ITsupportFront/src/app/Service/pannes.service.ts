@@ -26,4 +26,8 @@ export class PannesService {
     const headers = this.createAuthorizationHeader();
     return this.http.get<Panne[]>(`${this.apiUrl}/ShowAllPanne`, { headers });
   }
+  deletePanne(idPanne: number): Observable<void> {
+    const headers = this.createAuthorizationHeader();
+    return this.http.delete<void>(`${this.apiUrl}/delete/${idPanne}`, { headers});
+  }
 }
