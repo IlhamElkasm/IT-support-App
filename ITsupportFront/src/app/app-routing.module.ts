@@ -10,6 +10,7 @@ import { AuthGuard } from './Service/auth.guard';
 import { CreateEquipementComponent } from './Components/Equipements/create-equipement/create-equipement.component';
 import { UpdateEquipementComponent } from './Components/Equipements/update-equipement/update-equipement.component';
 import { PanneComponent } from './Components/Pannes/panne/panne.component';
+import { CreatePanneComponent } from './Components/Pannes/create-panne/create-panne.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashbordComponent , children:[
@@ -19,7 +20,8 @@ const routes: Routes = [
     { path: 'equipements', component: EquipementComponent},
     {path: 'createEquipments', component: CreateEquipementComponent},
     {path: 'updateEquipement/:id', component: UpdateEquipementComponent},
-    {path: 'panne', component:PanneComponent}
+    {path: 'panne', component:PanneComponent},
+    {path: 'createPanne', component:CreatePanneComponent}
   ]},
   { path: '**', redirectTo: '/login' },
   {path: "login", component: LoginComponent},

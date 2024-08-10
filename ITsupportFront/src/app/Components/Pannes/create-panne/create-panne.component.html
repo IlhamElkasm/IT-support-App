@@ -1,1 +1,11 @@
-<p>create-panne works!</p>
+<div class="container">
+    <h2>Créer un nouvel équipement</h2>
+    <form (ngSubmit)="createPanne()">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" id="description" class="form-control" [(ngModel)]="panne.description" name="description" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Créer</button>
+    </form>
+  </div>
+  
