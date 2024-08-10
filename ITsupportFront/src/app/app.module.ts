@@ -14,7 +14,8 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { UserComponent } from './Components/user/user.component';
 import { MainComponent } from './Components/main/main.component';
 import { EquipementComponent } from './Components/Equipements/equipement/equipement.component';
-import { CreateEquipementComponent } from './Components/Equipements/create-equipement/create-equipement.component'; 
+import { CreateEquipementComponent } from './Components/Equipements/create-equipement/create-equipement.component';
+import { UpdateEquipementComponent } from './Components/Equipements/update-equipement/update-equipement.component'; 
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CreateEquipementComponent } from './Components/Equipements/create-equip
     UserComponent,
     MainComponent,
     EquipementComponent,
-    CreateEquipementComponent
+    CreateEquipementComponent,
+    UpdateEquipementComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Equipement } from 'src/app/Module/equipement';
 import { EquipementsService } from 'src/app/Service/equipements.service';
 
@@ -12,7 +13,7 @@ export class EquipementComponent implements OnInit {
   equipements: Equipement[] = [];
   errorMessage: string = '';
 
-  constructor(private equipementService: EquipementsService) {}
+  constructor(private equipementService: EquipementsService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadEquipements();
@@ -40,5 +41,8 @@ export class EquipementComponent implements OnInit {
         console.error('Error deleting user', error);
       }
     );
+  }
+  updateEquipement(idEquipement: number): void {
+    this.router.navigate(['/dashboard/updateEquipement', idEquipement]); // Redirige vers la page de mise à jour
   }
 }

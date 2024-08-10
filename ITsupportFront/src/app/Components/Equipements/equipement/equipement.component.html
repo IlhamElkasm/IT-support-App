@@ -21,7 +21,7 @@
         <td>{{ equipement.description }}</td>
         <td>{{ equipement.etat }}</td>
         <td class="actions">
-          <button class="edit-btn">Modifier</button>
+          <button class="edit-btn" *ngIf="equipement.idEquipement" (click)="updateEquipement(equipement.idEquipement)">Modifier</button>         
           <button class="delete-btn" *ngIf="equipement.idEquipement" (click)="deleteEquipement(equipement.idEquipement!)">Supprimer</button>
         </td>
       </tr>

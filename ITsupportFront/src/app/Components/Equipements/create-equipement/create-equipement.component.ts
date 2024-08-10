@@ -10,6 +10,7 @@ import { EquipementsService } from 'src/app/Service/equipements.service';
   styleUrls: ['./create-equipement.component.css']
 })
 export class CreateEquipementComponent {
+  
   equipement: Equipement = {
     nom: '',
     description: '',

@@ -32,11 +32,14 @@ export class EquipementsService {
     return this.http.post<Equipement>(`${this.apiUrl}/CreateEquipement`, equipement);
   }
 
-  updateEquipement(equipement: Equipement, id: number): Observable<Equipement> {
+  updateEquipement(equipement: Equipement, idEquipement: number): Observable<Equipement> {
     const headers = this.createAuthorizationHeader();
-    return this.http.put<Equipement>(`${this.apiUrl}/eventsPut/{idEquipement}`, { headers});
+    return this.http.put<Equipement>(`${this.apiUrl}/eventsPut/${idEquipement}`, equipement, { headers });
   }
 
+  getEquipementById(idEquipement: number): Observable<Equipement> {
+    return this.http.get<Equipement>(`${this.apiUrl}/${idEquipement}`);
+  }
   deleteEquipement(idEquipement: number): Observable<void> {
     const headers = this.createAuthorizationHeader();
     return this.http.delete<void>(`${this.apiUrl}/${idEquipement}`, { headers});
