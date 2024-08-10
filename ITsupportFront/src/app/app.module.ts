@@ -15,7 +15,9 @@ import { UserComponent } from './Components/user/user.component';
 import { MainComponent } from './Components/main/main.component';
 import { EquipementComponent } from './Components/Equipements/equipement/equipement.component';
 import { CreateEquipementComponent } from './Components/Equipements/create-equipement/create-equipement.component';
-import { UpdateEquipementComponent } from './Components/Equipements/update-equipement/update-equipement.component'; 
+import { UpdateEquipementComponent } from './Components/Equipements/update-equipement/update-equipement.component';
+import { PanneComponent } from './Components/Pannes/panne/panne.component';
+import { CreatePanneComponent } from './Components/Pannes/create-panne/create-panne.component'; 
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { UpdateEquipementComponent } from './Components/Equipements/update-equip
     MainComponent,
     EquipementComponent,
     CreateEquipementComponent,
-    UpdateEquipementComponent
+    UpdateEquipementComponent,
+    PanneComponent,
+    CreatePanneComponent
   ],
   imports: [
     BrowserModule,

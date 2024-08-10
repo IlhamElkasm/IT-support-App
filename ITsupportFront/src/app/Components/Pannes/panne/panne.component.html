@@ -1,0 +1,27 @@
+<div class="container">
+    <button class="add-account-btn"><a routerLink="/dashboard/createEquipments">Panne</a></button>
+    <h2>Liste des Équipements</h2>
+  
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let panne of pannes">
+          <td>{{ panne.description }}</td>
+          <td class="actions">
+            <button class="edit-btn">Modifier</button>         
+            <button class="delete-btn">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

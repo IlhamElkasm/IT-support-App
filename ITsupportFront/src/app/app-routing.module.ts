@@ -9,6 +9,7 @@ import { EquipementComponent } from './Components/Equipements/equipement/equipem
 import { AuthGuard } from './Service/auth.guard';
 import { CreateEquipementComponent } from './Components/Equipements/create-equipement/create-equipement.component';
 import { UpdateEquipementComponent } from './Components/Equipements/update-equipement/update-equipement.component';
+import { PanneComponent } from './Components/Pannes/panne/panne.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashbordComponent , children:[
@@ -17,7 +18,8 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     { path: 'equipements', component: EquipementComponent},
     {path: 'createEquipments', component: CreateEquipementComponent},
-    {path: 'updateEquipement/:id', component: UpdateEquipementComponent}
+    {path: 'updateEquipement/:id', component: UpdateEquipementComponent},
+    {path: 'panne', component:PanneComponent}
   ]},
   { path: '**', redirectTo: '/login' },
   {path: "login", component: LoginComponent},
