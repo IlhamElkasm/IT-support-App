@@ -10,7 +10,7 @@ import { Equipement } from '../Module/equipement';
 export class EquipementsService {
   
   constructor(private http: HttpClient) {}
-  private apiUrl = 'http://localhost:8089/api/v1/auth/Admin';
+  private apiUrl = 'http://localhost:8089/api/v1/auth/ADMIN';
 
   private createAuthorizationHeader(): HttpHeaders | undefined {
     const jwtToken = localStorage.getItem('jwt');

@@ -9,29 +9,33 @@ import { AuthenticationService } from 'src/app/Service/authentication.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  implements OnInit{
+export class LoginComponent {
 
-  loginForm!: FormGroup;
-  constructor(
-    private service: AuthenticationService,
-    private fb: FormBuilder,
-    private router: Router
-  
-  ){}
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-    })
-  }
-  submitForm(): void {
-    console.log(this.loginForm.value);
-    this.service.login(this.loginForm.value).subscribe(
-      (response : Jwt) => {
-            const jwToken = response.token;
-            localStorage.setItem('jwt', jwToken);
-           this.router.navigateByUrl("/dashboard")
+  email: string = '';
+  password: string = '';
+  role: string = '';
+
+  constructor(private authService: AuthenticationService, private router: Router) {}
+
+  onLogin() {
+    this.authService.login(this.email, this.password).subscribe(
+      (response) => {
+        localStorage.setItem('token', response.token);
+        
+        // Redirection en fonction du rôle
+        if (response.role === 'ADMIN') {
+          this.router.navigate(['/dashboard']);
+        } else if (response.role === 'USER') {
+          this.router.navigate(['/dashboardUser']);
+        }else if (response.role === 'TECHNICIEN') {
+          this.router.navigate(['/technicien']);
+        }else {
+          alert('Rôle non reconnu');
         }
-    )
+      },
+      (error) => {
+        alert('Échec de l\'authentification');
+      }
+    );
   }
 }

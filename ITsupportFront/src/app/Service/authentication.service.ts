@@ -5,24 +5,27 @@ import { Jwt } from '../Module/Jwt';
 import { Utilisateur } from '../Module/Utilisateur';
 import { Router } from '@angular/router';
 
-const url = ["http://localhost:8089/api/v1/auth/"]
+const BASE_URL = "http://localhost:8089/api/v1/auth/";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  url: any;
-  constructor(private http: HttpClient,private router: Router) { }
+  
+  constructor(private http: HttpClient, private router: Router) { }
 
-  register(singRequest:any): Observable<Jwt>{
-    return this.http.post<Jwt>(url+'Admin/register', singRequest)
+  register(singRequest: any): Observable<Jwt> {
+    return this.http.post<Jwt>(`${BASE_URL}ADMIN/register`, singRequest);
   }
-  login(loginRequest:any): Observable<Jwt>{
-    return this.http.post<Jwt>(url+'authenticate', loginRequest)
+
+  login(email: string, password: string): Observable<any> {
+    const loginRequest = { email, password };
+    return this.http.post<any>(`${BASE_URL}authenticate`, loginRequest);
   }
+
   getUserCount(): Observable<number> {
     const headers = this.createAuthorizationHeader();
-    return this.http.get<number>(url + 'Admin/count', { headers });
+    return this.http.get<number>(`${BASE_URL}ADMIN/count`, { headers });
   }
   
   private createAuthorizationHeader(): HttpHeaders | undefined {
@@ -36,10 +39,9 @@ export class AuthenticationService {
     }
   }
 
-
   getAllUser(): Observable<Utilisateur[]> {
     const headers = this.createAuthorizationHeader();
-    return this.http.get<Utilisateur[]>(url+ `Admin/AllUser`, { headers });
+    return this.http.get<Utilisateur[]>(`${BASE_URL}ADMIN/AllUser`, { headers });
   }
 
   logout() {
@@ -47,7 +49,7 @@ export class AuthenticationService {
     this.router.navigate(['/login']);
   }
 
-  isLoggedIn() {
-    return !!localStorage.getItem('token');
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('jwt');
   }
 }
