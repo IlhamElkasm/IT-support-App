@@ -35,4 +35,14 @@ export class PannesService {
     const headers = this.createAuthorizationHeader();
     return this.http.post<Panne>(`${this.apiUrl}/panne`, panne, { headers });
   }
+
+  updatePanne(panne: Panne, idPanne: number): Observable<Panne> {
+    const headers = this.createAuthorizationHeader();
+    return this.http.put<Panne>(`${this.apiUrl}/update/${idPanne}`, panne, { headers });
+  }
+  
+  getEquipementById(idPanne: number): Observable<Panne> {
+    return this.http.get<Panne>(`${this.apiUrl}/${idPanne}`);
+  }
+
 }

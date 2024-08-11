@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Modifier la Panne</h2>
+  
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input
+          type="text"
+          id="description"
+          [(ngModel)]="panne.description"
+          name="description"
+          required
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+  </div>
+  

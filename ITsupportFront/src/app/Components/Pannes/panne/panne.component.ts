@@ -42,4 +42,8 @@ export class PanneComponent implements OnInit {
       }
     );
   }
+  editPanne(idPanne: number): void {
+    this.router.navigate(['/dashboard/updatePanne', idPanne]); // Navigates to the edit form with the panne ID
+  }
+  
 }

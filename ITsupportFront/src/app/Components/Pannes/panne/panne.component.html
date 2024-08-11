@@ -17,7 +17,7 @@
         <tr *ngFor="let panne of pannes">
           <td>{{ panne.description }}</td>
           <td class="actions">
-            <button class="edit-btn">Modifier</button>         
+            <button class="edit-btn" (click)="editPanne(panne.idPanne)">Modifier</button>         
             <button class="delete-btn" *ngIf="panne.idPanne" (click)="deletePanne(panne.idPanne!)">Supprimer</button>
           </td>
         </tr>

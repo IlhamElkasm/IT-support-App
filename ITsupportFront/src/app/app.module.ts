@@ -17,7 +17,8 @@ import { EquipementComponent } from './Components/Equipements/equipement/equipem
 import { CreateEquipementComponent } from './Components/Equipements/create-equipement/create-equipement.component';
 import { UpdateEquipementComponent } from './Components/Equipements/update-equipement/update-equipement.component';
 import { PanneComponent } from './Components/Pannes/panne/panne.component';
-import { CreatePanneComponent } from './Components/Pannes/create-panne/create-panne.component'; 
+import { CreatePanneComponent } from './Components/Pannes/create-panne/create-panne.component';
+import { UpdatePanneComponent } from './Components/Pannes/update-panne/update-panne.component'; 
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CreatePanneComponent } from './Components/Pannes/create-panne/create-pa
     CreateEquipementComponent,
     UpdateEquipementComponent,
     PanneComponent,
-    CreatePanneComponent
+    CreatePanneComponent,
+    UpdatePanneComponent
   ],
   imports: [
     BrowserModule,
