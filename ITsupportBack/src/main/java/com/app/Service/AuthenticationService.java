@@ -26,7 +26,6 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-
         var user = new Utilisateur();
         user.setNom(request.getNom());
         user.setEmail(request.getEmail());
@@ -37,11 +36,11 @@ public class AuthenticationService {
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .role(user.getRole().name())  // Include the role in the response
                 .build();
     }
 
     public AuthenticationResponse registerAdmin(RegisterRequest request) {
-
         var admin = new AdministrateurIT();
         admin.setNom(request.getNom());
         admin.setEmail(request.getEmail());
@@ -52,28 +51,26 @@ public class AuthenticationService {
         var jwtToken = jwtService.generateToken(admin);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .role(admin.getRole().name())  // Include the role in the response
                 .build();
     }
-
 
     public AuthenticationResponse registerTechnicien(RegisterRequest request) {
+        var technicien = new TechnicienIT();
+        technicien.setNom(request.getNom());
+        technicien.setEmail(request.getEmail());
+        technicien.setPassword(passwordEncoder.encode(request.getPassword()));
+        technicien.setRole(Role.TECHNICIEN);
+        userdao.save(technicien);
 
-        var admin = new TechnicienIT();
-        admin.setNom(request.getNom());
-        admin.setEmail(request.getEmail());
-        admin.setPassword(passwordEncoder.encode(request.getPassword()));
-        admin.setRole(Role.TECHNICIEN);
-        userdao.save(admin);
-
-        var jwtToken = jwtService.generateToken(admin);
+        var jwtToken = jwtService.generateToken(technicien);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .role(technicien.getRole().name())  // Include the role in the response
                 .build();
     }
 
-
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
-
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -86,8 +83,10 @@ public class AuthenticationService {
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .role(user.getRole().name())  // Include the role in the response
                 .build();
     }
+
 
     public List<Utilisateur> getAllUser() {
         return  userRepository.findAll();

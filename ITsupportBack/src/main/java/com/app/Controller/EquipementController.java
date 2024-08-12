@@ -4,11 +4,13 @@ import com.app.Model.Equipement;
 import com.app.Model.Personne;
 import com.app.Service.EquipementService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/api/v1/auth/Admin")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class EquipementController {

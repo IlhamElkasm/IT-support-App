@@ -10,6 +10,7 @@ import com.app.Model.Utilisateur;
 import com.app.Service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class AuthenticationController {
     public List<Utilisateur> getAllPanne() {
         return authService.getAllUser();
     }
+
     @PostMapping("/Admin/register")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request

@@ -3,9 +3,13 @@ package com.app.Controller;
 import com.app.Model.EtatTicket;
 import com.app.Model.TechnicienIT;
 import com.app.Model.Ticket;
+import com.app.Model.Utilisateur;
+import com.app.Repository.UserRepository;
 import com.app.Service.TickerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,10 +22,22 @@ public class TicketController {
     @Autowired
     private TickerService ticketService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @PostMapping("User/Add")
-    public ResponseEntity<Ticket> creerTicket(@RequestBody Ticket ticket) {
-        Ticket nouveauTicket = ticketService.creerTicket(ticket);
-        return ResponseEntity.ok(nouveauTicket);
+    public ResponseEntity<String> creerTicket(@RequestBody Ticket ticket, @AuthenticationPrincipal Utilisateur user) {
+        try {
+            Utilisateur utilisateurVerifie = userRepository
+                    .findById(user.getId())
+                    .orElseThrow(()-> new RuntimeException("utilisateur not found"));
+
+            ticketService.creerTicket(ticket,user);
+
+            return ResponseEntity.status(HttpStatus.CREATED).body("created successfully");
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("not created" + e.getMessage());
+        }
     }
 
     @GetMapping("/{id}")

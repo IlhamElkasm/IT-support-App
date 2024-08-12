@@ -15,9 +15,21 @@ public class TickerServiceImpl implements  TickerService{
     @Autowired
     private TicketRepository ticketRepository;
 
+    @Autowired
+    private  PanneRepository panneRepository;
+
+    @Autowired
+    private  EquipementRepository equipementRepository;
+
     @Override
-    public Ticket creerTicket(Ticket ticket) {
+    public Ticket creerTicket(Ticket ticket, Utilisateur user) {
+        ticket.setEquipement(equipementRepository.findById(ticket.getEquipement().getIdEquipement()).orElse(null));
+        ticket.setPanne(panneRepository.findById(ticket.getPanne().getIdPanne()).orElse(null));
+
+        ticket.setUtilisateur(user);
         ticket.setEtatTicket(EtatTicket.OUVERT);
+        ticket.setDateCréation(LocalDate.now());
+
         return ticketRepository.save(ticket);
     }
 

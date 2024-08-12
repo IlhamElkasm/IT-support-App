@@ -33,6 +33,6 @@ public class Ticket {
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "idtechnicien", nullable = false)
+    @JoinColumn(name = "idtechnicien")
     private TechnicienIT technicien;
 }
