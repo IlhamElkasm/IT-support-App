@@ -12,6 +12,7 @@ import { PanneComponent } from './Components/Pannes/panne/panne.component';
 import { CreatePanneComponent } from './Components/Pannes/create-panne/create-panne.component';
 import { UpdatePanneComponent } from './Components/Pannes/update-panne/update-panne.component';
 import { DashboardUserComponent } from './Components/dashboard-user/dashboard-user.component';
+import { TechnicienComponent } from './Components/technicien/technicien.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashbordComponent, children: [
     { path: '', component: MainComponent },
     { path: 'user', component: UserComponent },
+    { path: 'technicien', component: TechnicienComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'equipements', component: EquipementComponent },
     { path: 'createEquipments', component: CreateEquipementComponent },

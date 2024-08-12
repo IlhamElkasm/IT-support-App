@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Panne } from 'src/app/Module/panne';
 import { PannesService } from 'src/app/Service/pannes.service';
 

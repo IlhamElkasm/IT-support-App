@@ -19,7 +19,9 @@ import { UpdateEquipementComponent } from './Components/Equipements/update-equip
 import { PanneComponent } from './Components/Pannes/panne/panne.component';
 import { CreatePanneComponent } from './Components/Pannes/create-panne/create-panne.component';
 import { UpdatePanneComponent } from './Components/Pannes/update-panne/update-panne.component';
-import { DashboardUserComponent } from './Components/dashboard-user/dashboard-user.component'; 
+import { DashboardUserComponent } from './Components/dashboard-user/dashboard-user.component';
+import { TechnicienComponent } from './Components/technicien/technicien.component';
+import { RegisterTechnicienComponent } from './Components/register-technicien/register-technicien.component'; 
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { DashboardUserComponent } from './Components/dashboard-user/dashboard-us
     PanneComponent,
     CreatePanneComponent,
     UpdatePanneComponent,
-    DashboardUserComponent
+    DashboardUserComponent,
+    TechnicienComponent,
+    RegisterTechnicienComponent
   ],
   imports: [
     BrowserModule,

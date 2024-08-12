@@ -1,4 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
+;
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Equipement, EtatEquipement } from 'src/app/Module/equipement';

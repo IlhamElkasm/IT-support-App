@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Service/authentication.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-register-technicien',
+  templateUrl: './register-technicien.component.html',
+  styleUrls: ['./register-technicien.component.css']
 })
-export class RegisterComponent  implements OnInit {
+export class RegisterTechnicienComponent implements OnInit {
 
   registerForm!: FormGroup
 
@@ -41,7 +41,7 @@ export class RegisterComponent  implements OnInit {
   }
   submitForm() {
     console.log(this.registerForm.value);
-    this.service.register(this.registerForm.value).subscribe(
+    this.service.registertechnicien(this.registerForm.value).subscribe(
       (response) => {
           console.log('Registration successful:', response);
           this.router.navigate(['/dashboard/user']);

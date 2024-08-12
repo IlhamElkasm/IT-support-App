@@ -6,6 +6,7 @@ import com.app.DTO.AuthenticationResponse;
 import com.app.DTO.RegisterRequest;
 import com.app.Model.Panne;
 import com.app.Model.Personne;
+import com.app.Model.TechnicienIT;
 import com.app.Model.Utilisateur;
 import com.app.Service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,11 @@ public class AuthenticationController {
     @GetMapping("/Admin/AllUser")
     public List<Utilisateur> getAllPanne() {
         return authService.getAllUser();
+    }
+
+    @GetMapping("/Admin/getAllTechnicien")
+    public List<TechnicienIT> getAllTechnicien() {
+        return authService.getAllTechnicien();
     }
 
     @PostMapping("/Admin/register")
