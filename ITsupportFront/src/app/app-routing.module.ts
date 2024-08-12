@@ -14,11 +14,14 @@ import { UpdatePanneComponent } from './Components/Pannes/update-panne/update-pa
 import { DashboardUserComponent } from './Components/dashboard-user/dashboard-user.component';
 import { TechnicienComponent } from './Components/technicien/technicien.component';
 import { RegisterTechnicienComponent } from './Components/register-technicien/register-technicien.component';
+import { TicketCreateComponent } from './Components/Ticket/ticket-create/ticket-create.component';
 
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
-  { path: 'dashboardUser', component: DashboardUserComponent },
+  { path: 'dashboardUser', component: DashboardUserComponent, children:[
+    {path: 'TicketCreate', component: TicketCreateComponent}
+  ] },
   { path: 'dashboard', component: DashbordComponent, children: [
     { path: '', component: MainComponent },
     { path: 'user', component: UserComponent },

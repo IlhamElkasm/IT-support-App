@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="equipement">Équipement ID:</label>
+      <input type="number" id="equipement" [(ngModel)]="ticket.equipement.idEquipement" name="equipement">
+    </div>
+    <div>
+      <label for="panne">Panne ID:</label>
+      <input type="number" id="panne" [(ngModel)]="ticket.panne.idPanne" name="panne">
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="ticket.description" name="description"></textarea>
+      </div>
+      
+    <div>
+      <label for="etatTicket">État du Ticket:</label>
+      <select id="etatTicket" [(ngModel)]="ticket.etatTicket" name="etatTicket">
+        <option *ngFor="let etat of etatsTicket" [value]="etat">{{etat}}</option>
+      </select>
+    </div>
+    <button type="submit">Créer Ticket</button>
+  </form>
+  
