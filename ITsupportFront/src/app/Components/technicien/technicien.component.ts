@@ -20,7 +20,7 @@ export class TechnicienComponent implements OnInit {
   }
 
   getAllUser(): void {
-    this.Service.getAllUser().subscribe(
+    this.Service.getAllTechnicien().subscribe(
       (response) => {
         this.technicien = response;
       },

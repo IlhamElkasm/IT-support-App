@@ -13,6 +13,7 @@ import { CreatePanneComponent } from './Components/Pannes/create-panne/create-pa
 import { UpdatePanneComponent } from './Components/Pannes/update-panne/update-panne.component';
 import { DashboardUserComponent } from './Components/dashboard-user/dashboard-user.component';
 import { TechnicienComponent } from './Components/technicien/technicien.component';
+import { RegisterTechnicienComponent } from './Components/register-technicien/register-technicien.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: 'user', component: UserComponent },
     { path: 'technicien', component: TechnicienComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'registertechnicien', component: RegisterTechnicienComponent },
     { path: 'equipements', component: EquipementComponent },
     { path: 'createEquipments', component: CreateEquipementComponent },
     { path: 'updateEquipement/:id', component: UpdateEquipementComponent },

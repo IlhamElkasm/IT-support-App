@@ -39,12 +39,12 @@ export class RegisterTechnicienComponent implements OnInit {
       formGroup.get('confirmPassword')?.setErrors(null);
     }
   }
-  submitForm() {
+  submitFormT() {
     console.log(this.registerForm.value);
     this.service.registertechnicien(this.registerForm.value).subscribe(
       (response) => {
           console.log('Registration successful:', response);
-          this.router.navigate(['/dashboard/user']);
+          this.router.navigate(['/dashboard/technicien']);
       },
       (error) => {
           console.error('Registration failed:', error);
