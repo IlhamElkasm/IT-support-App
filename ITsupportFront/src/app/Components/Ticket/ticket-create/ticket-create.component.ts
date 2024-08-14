@@ -10,8 +10,8 @@ import { TicketService } from 'src/app/Service/ticket.service';
 export class TicketCreateComponent {
 
   ticket: Ticket = {
-    equipement: { idEquipement: 1 },  // exemple de valeur
-    panne: { idPanne: 1 },            // exemple de valeur
+    equipement: { idEquipement: 0 },  // exemple de valeur
+    panne: { idPanne: 0},            // exemple de valeur
     etatTicket: EtatTicket.OUVERT  ,   // par défaut à l'état OUVERT
     description: ''
   };

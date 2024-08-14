@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+  isSidebarOpen = false;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+
+    // Ajoutez cette ligne pour ajouter une classe "no-scroll" au body lorsque le sidebar est ouvert
+    if (this.isSidebarOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
 }

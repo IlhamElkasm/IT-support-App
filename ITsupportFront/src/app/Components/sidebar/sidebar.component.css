@@ -1,50 +1,87 @@
+/* Styles par défaut pour la sidebar */
 .sidebar {
-    width: 250px;
-    background-color: #f8f9fa;
-    position: fixed;
-    height: 100%;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  width: 250px;
+  background-color: #f8f9fa;
+  position: fixed;
+  height: 100%;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Transition pour ouverture/fermeture */
+  z-index: 1000;
+}
+
+/* Cacher la sidebar sur les petits écrans par défaut */
+@media (max-width: 768px) {
+  .sidebar {
+      transform: translateX(-100%); /* Déplacer la sidebar hors écran */
   }
-  
-  .sidebar .logo img {
-    width: 100px;
-    margin-bottom: 20px;
+
+  /* Le bouton de menu n'apparaît que sur les petits écrans */
+  .menu-toggle {
+      display: block;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1001; /* Assurer que le bouton est au-dessus du contenu */
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
+}
+
+/* Afficher la sidebar lorsque le toggle est activé */
+.sidebar.active {
+  transform: translateX(0);
+}
+
+/* Désactiver le bouton de menu sur les écrans larges */
+@media (min-width: 769px) {
+  .menu-toggle {
+      display: none;
   }
-  
-  .sidebar ul li {
-    margin: 20px 0;
-  }
-  
-  .sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
-    transition: background-color 0.3s;
-  }
-  
-  .sidebar ul li a:hover {
-    background-color: #e2e2e2;
-  }
-  
-  .logout {
-    margin-top: 50px;
-  }
-  
-  .logout a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
-    transition: background-color 0.3s;
-  }
-  
-  .logout a:hover {
-    background-color: #e2e2e2;
-  }
+}
+
+.sidebar .logo img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #e2e2e2;
+}
+
+.logout {
+  margin-top: 50px;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.logout a:hover {
+  background-color: #e2e2e2;
+}
