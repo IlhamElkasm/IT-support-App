@@ -35,7 +35,7 @@ export class PanneComponent implements OnInit {
     this.pannesService.deletePanne(idPanne).subscribe(
       () => {
         this.pannes = this.pannes.filter(pannes => pannes.idPanne !== idPanne);
-        console.log('User deleted successfully');
+        alert('User deleted successfully');
       },
       (error) => {
         console.error('Error deleting user', error);

@@ -20,7 +20,7 @@ public class PanneController {
         return panneService.addPanne(panne);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public Panne updatePanne(@PathVariable Long id, @RequestBody Panne panneDetails) {
         return panneService.updatePanne(id, panneDetails);
     }
