@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Panne } from 'src/app/Module/panne';
+import { Panne } from 'src/app/Model/panne';
 import { PannesService } from 'src/app/Service/pannes.service';
 
 @Component({

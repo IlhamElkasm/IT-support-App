@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Equipement, EtatEquipement } from 'src/app/Module/equipement';
+import { Equipement, EtatEquipement } from 'src/app/Model/equipement';
 import { EquipementsService } from 'src/app/Service/equipements.service';
 
 @Component({

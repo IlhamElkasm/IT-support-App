@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Panne } from '../Module/panne';
+import { Panne } from '../Model/panne';
 import { Observable } from 'rxjs';
 
 @Injectable({

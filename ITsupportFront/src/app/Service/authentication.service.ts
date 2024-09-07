@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Jwt } from '../Module/Jwt';
-import { Utilisateur } from '../Module/Utilisateur';
+import { Jwt } from '../Model/Jwt';
+import { Utilisateur } from '../Model/Utilisateur';
 import { Router } from '@angular/router';
-import { Technicien } from '../Module/Technicien';
+import { Technicien } from '../Model/Technicien';
 
 const BASE_URL = "http://localhost:8089/api/v1/auth/";
 

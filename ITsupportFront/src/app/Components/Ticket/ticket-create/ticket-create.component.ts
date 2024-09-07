@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EtatTicket, Ticket } from 'src/app/Module/ticket';
+import { EtatTicket, Ticket } from 'src/app/Model/ticket';
 import { TicketService } from 'src/app/Service/ticket.service';
 
 @Component({

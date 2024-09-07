@@ -15,6 +15,7 @@ import { DashboardUserComponent } from './Components/dashboard-user/dashboard-us
 import { TechnicienComponent } from './Components/technicien/technicien.component';
 import { RegisterTechnicienComponent } from './Components/register-technicien/register-technicien.component';
 import { TicketCreateComponent } from './Components/Ticket/ticket-create/ticket-create.component';
+import { AllPanneComponent } from './Components/all-panne/all-panne.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,9 @@ const routes: Routes = [
     { path: 'createPanne', component: CreatePanneComponent },
     { path: 'updatePanne/:id', component: UpdatePanneComponent }
   ]},
-  { path: '**', redirectTo: '/login' }
+  { path: '**', redirectTo: '/login' },
+
+  {path: 'allpane', component: AllPanneComponent},
 ];
 
 
